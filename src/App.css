@@ -1,0 +1,22 @@
+.carousel-indicators button {
+    background-color: black; /* Set the color to black */
+  }
+  
+  /* Optional: Add styles for the active button */
+  .carousel-indicators .active {
+    background-color: black; /* Ensures the active button is also black */
+  }
+
+  .carousel-container {
+    height: 80vh; /* 80% of the viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .carousel-container img {
+    width: 80%; /* 80% width to keep the image centered */
+    height: auto; /* Ensures the image maintains its aspect ratio */
+    object-fit: contain; /* Ensures the entire image is visible */
+  }
+  

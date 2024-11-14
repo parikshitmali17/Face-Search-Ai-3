@@ -167,3 +167,22 @@ app.get('/users', async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
+
+
+// new 
+
+// Endpoint to add a new user
+app.post('/api/users', async (req, res) => {
+  const { name, email } = req.body;
+  try {
+    const result = await pool.query(
+      'INSERT INTO users (name, email) VALUES ($1, $2) RETURNING *',
+      [name, email]
+    );
+    res.status(201).json({ message: 'User added successfully', user: result.rows[0] });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Failed to add user' });
+  }
+});

@@ -20,3 +20,18 @@
     object-fit: contain; /* Ensures the entire image is visible */
   }
   
+  button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #6772e5;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #5469d4;
+  }

@@ -6,6 +6,9 @@ import HeroSection from './Components/HeroSection.jsx';
 import Card from './Components/Card.jsx';
 import Footer from './Components/Footer.jsx';
 import CenteredHeading from './Components/Heading.jsx';
+import PaymentForm from './Components/PaymentForm.jsx';
+
+
 
 function App() {
   return (
@@ -15,6 +18,8 @@ function App() {
     <HeroSection/>
   
   <Card/>
+  <PaymentForm/>
+  
   <Footer/>
   
 

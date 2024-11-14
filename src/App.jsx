@@ -79,7 +79,7 @@ function App() {
           <>
             <HeroSection />
             <Card />
-            <PaymentForm />
+            {/* <PaymentForm /> */}
             <ImageVideoUpload />
             <div style={{ textAlign: 'center', marginTop: '50px' }}>
               <button onClick={handleClick}>Search</button>

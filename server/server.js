@@ -132,6 +132,7 @@ app.post('/payment', async (req, res) => {
 
 app.get('/success',(req,res)=>{
   res.send("Payment Succefully done");
+  
 })
 
 app.get('/cancel',(req,res)=>{

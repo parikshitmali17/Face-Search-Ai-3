@@ -187,3 +187,18 @@ app.post('/api/users', async (req, res) => {
     res.status(500).json({ message: 'Failed to add user' });
   }
 });
+
+app.post('/api/deleteUser', async (req, res) => {
+  const { user } = req.body;
+  console.log(req.body);
+  try {
+    const result = await pool.query(
+      'DELETE FROM users WHERE id IN ($1) RETURNING *',
+      [user]
+    );
+    res.status(201).json({ message: 'User Deleted Successfully', user: result.rows[0] });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Failed to Delete User' });
+  }
+});

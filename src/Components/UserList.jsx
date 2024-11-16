@@ -33,7 +33,7 @@ try {
 
   useEffect(() => {
     fetchUsers();
-  }, []);
+  }, [users]);
 
   return (
     

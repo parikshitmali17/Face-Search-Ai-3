@@ -202,3 +202,32 @@ app.post('/api/deleteUser', async (req, res) => {
     res.status(500).json({ message: 'Failed to Delete User' });
   }
 });
+
+// app.post('/api/updateUser', async (req, res) => {
+//   const { updateUser } = req.body;
+//   console.log(req.body);
+//   try {
+//     const result = await pool.query(
+//       'UPDATE users SET name = $1, email = $2, WHERE id=$3; RETURNING *',
+//       [updateUser]
+//     );
+//     res.status(201).json({ message: 'User Deleted Successfully', user: result.rows[0] });
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ message: 'Failed to Delete User' });
+//   }
+// });
+
+app.post('/api/updateUser', async (req, res) => {
+  const { id, name, email } = req.body;
+  try {
+    await db.query('UPDATE users SET name = $1, email = $2 WHERE id = $3', [
+      name,
+      email,
+      id,
+    ]);
+    res.json({ message: 'User updated successfully!' });
+  } catch (error) {
+    res.status(500).json({ error: 'Error updating user' });
+  }
+});

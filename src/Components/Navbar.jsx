@@ -75,7 +75,71 @@
 //     </nav>
 //   );
 // }
+ //2
 
+// import React from 'react';
+// import { Link } from 'react-router-dom';
+
+// export default function Navbar() {
+//   return (
+//     <nav className="navbar navbar-expand-lg bg-body-tertiary navbar bg-primary" data-bs-theme="dark">
+//       <div className="container-fluid">
+//         <Link className="navbar-brand" to="/">Face Search AI</Link>
+//         <button
+//           className="navbar-toggler"
+//           type="button"
+//           data-bs-toggle="collapse"
+//           data-bs-target="#navbarNavDropdown"
+//           aria-controls="navbarNavDropdown"
+//           aria-expanded="false"
+//           aria-label="Toggle navigation"
+//         >
+//           <span className="navbar-toggler-icon"></span>
+//         </button>
+//         <div className="collapse navbar-collapse" id="navbarNavDropdown">
+//           <ul className="navbar-nav">
+//             <li className="nav-item">
+//               <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+//             </li>
+//             <li className="nav-item">
+//               <Link className="nav-link" to="/features">Features</Link>
+//             </li>
+//             <li className="nav-item">
+//               <Link className="nav-link" to="/users">Users</Link>
+//             </li>
+//             <li className="nav-item dropdown">
+//               <button
+//                 className="nav-link dropdown-toggle btn btn-link"
+//                 type="button"
+//                 data-bs-toggle="dropdown"
+//                 aria-expanded="false"
+//               >
+//                 Contact
+//               </button>
+//               <ul className="dropdown-menu">
+//                 <li>
+//                   <button className="dropdown-item btn btn-link" onClick={() => alert('Join our waiting list!')}>
+//                     Join our waiting list now!
+//                   </button>
+//                 </li>
+//                 <li>
+//                   <button className="dropdown-item btn btn-link" onClick={() => alert('Another action triggered.')}>
+//                     Another action
+//                   </button>
+//                 </li>
+//                 <li>
+//                   <button className="dropdown-item btn btn-link" onClick={() => alert('Something else triggered.')}>
+//                     Something else here
+//                   </button>
+//                 </li>
+//               </ul>
+//             </li>
+//           </ul>
+//         </div>
+//       </div>
+//     </nav>
+//   );
+// }
 
 import React from 'react';
 import { Link } from 'react-router-dom';

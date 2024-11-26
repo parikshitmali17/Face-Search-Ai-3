@@ -11,6 +11,7 @@ import PaymentForm from './Components/PaymentForm';
 import UsersList from './Components/UserList';
 import ImageVideoUpload from './Components/ImageVideoUpload';
 import ImageResult from './Components/ImageResult';
+import PaymentSuccess from './Components/PaymentSuccess';
 
 function App() {
   const [showImageResult, setShowImageResult] = useState(false);
@@ -43,6 +44,8 @@ function App() {
           </>
         } />
         <Route path="/users" element={<UsersList />} />
+
+        <Route path="/payment-success" element={<PaymentSuccess />} />
       </Routes>
     </Router>
   );

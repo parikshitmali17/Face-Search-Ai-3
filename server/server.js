@@ -32,8 +32,8 @@ app.post('/payment', async (req, res) => {
                 }
             ],
             mode: 'payment',
-            success_url: 'http://localhost:5000/success',
-            cancel_url: 'http://localhost:5000/cancel',
+            success_url: 'http://localhost:3000/payment-success',
+            cancel_url: 'http://localhost:3000/cancel',
             customer_email: 'demo@gmail.com',
         });
 
@@ -44,10 +44,10 @@ app.post('/payment', async (req, res) => {
     }
 });
 
-app.get('/success',(req,res)=>{
-  res.send("Payment Succefully done");
+// app.get('/payment-success',(req,res)=>{
+//   res.send("Payment Succefully done");
   
-})
+// })
 
 app.get('/cancel',(req,res)=>{
   res.send("Your Payment is Cancled");
@@ -57,7 +57,7 @@ app.listen(5000, () => {
     console.log('Server running on port 5000');
 });
 
-
+// Database
 
 const { Pool } = require('pg');
 

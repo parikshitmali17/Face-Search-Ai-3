@@ -35,3 +35,56 @@
   button:hover {
     background-color: #5469d4;
   }
+
+
+
+
+   /* Success Page */
+
+   .success-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+  }
+  
+  .success-content {
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .success-icon {
+    width: 80px;
+    margin-bottom: 20px;
+  }
+  
+  h1 {
+    color: #28a745;
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    color: #6c757d;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .return-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .return-button:hover {
+    background-color: #0056b3;
+  }
+  

@@ -16,6 +16,7 @@
     "crypto-browserify": "^3.12.1",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
+    "mongoose": "^8.15.1",
     "path-browserify": "^1.0.1",
     "pg": "^8.13.1",
     "querystring-es3": "^0.2.1",
@@ -32,7 +33,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
     "build": "CI=false react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

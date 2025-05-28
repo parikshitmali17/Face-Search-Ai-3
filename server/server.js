@@ -32,8 +32,8 @@ app.post('/payment', async (req, res) => {
                 }
             ],
             mode: 'payment',
-            success_url: 'http://localhost:3000/payment-success',
-            cancel_url: 'http://localhost:3000/cancel',
+            success_url: 'http://localhost:5000/success',
+            cancel_url: 'http://localhost:5000/cancel',
             customer_email: 'demo@gmail.com',
         });
 
@@ -44,10 +44,10 @@ app.post('/payment', async (req, res) => {
     }
 });
 
-// app.get('/payment-success',(req,res)=>{
-//   res.send("Payment Succefully done");
+app.get('/success',(req,res)=>{
+  res.send("Payment Succefully done");
   
-// })
+})
 
 app.get('/cancel',(req,res)=>{
   res.send("Your Payment is Cancled");
@@ -60,6 +60,7 @@ app.listen(5000, () => {
 // Database
 
 const { Pool } = require('pg');
+const { use } = require('react');
 
 const pool = new Pool({
   user: 'postgres',
@@ -76,7 +77,7 @@ app.get('/users', async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM users');
     res.json(result.rows);
-    console.log(result.rows);
+    //console.log(result.rows);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal server error' });
@@ -88,7 +89,7 @@ app.get('/users', async (req, res) => {
 // new 
 
 // Endpoint to add a new user
-app.post('/api/users', async (req, res) => {
+app.post('/api/addUser', async (req, res) => {
   const { name, email } = req.body;
   try {
     const result = await pool.query(
@@ -103,12 +104,12 @@ app.post('/api/users', async (req, res) => {
 });
 
 app.post('/api/deleteUser', async (req, res) => {
-  const { user } = req.body;
-  console.log(req.body);
+  const { userId } = req.body;
+
   try {
     const result = await pool.query(
       'DELETE FROM users WHERE id IN ($1) RETURNING *',
-      [user]
+      [userId]
     );
     res.status(201).json({ message: 'User Deleted Successfully', user: result.rows[0] });
   } catch (error) {
@@ -118,16 +119,27 @@ app.post('/api/deleteUser', async (req, res) => {
 });
 
 
+
 app.post('/api/updateUser', async (req, res) => {
   const { id, name, email } = req.body;
+
+  if (!id || !name || !email) {
+    return res.status(400).json({ message: 'All fields are required' });
+  }
+
   try {
-    await db.query('UPDATE users SET name = $1, email = $2 WHERE id = $3', [
-      name,
-      email,
-      id,
-    ]);
-    res.json({ message: 'User updated successfully!' });
+    const result = await pool.query(
+      'UPDATE users SET name = $1, email = $2 WHERE id = $3',
+      [name, email, id]
+    );
+
+    if (result.rowCount === 0) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.status(200).json({ message: 'User updated successfully!' });
   } catch (error) {
-    res.status(500).json({ error: 'Error updating user' });
+    console.error('Error updating user:', error.message);
+    res.status(500).json({ message: 'Internal server error' });
   }
 });

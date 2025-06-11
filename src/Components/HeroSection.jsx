@@ -5,6 +5,7 @@ import axios from 'axios';
 
 export default function HeroSection({ onScrollToUpload }) {
   const buyFunction = async () => {
+    
     try {
       const response = await axios.post('http://localhost:3000/payment');
       if (response.status === 200) {     
